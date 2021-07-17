@@ -1,0 +1,42 @@
+.sideNav {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(43, 43, 43, 0.178);
+  color: #f0f0f0;
+  padding: 24px;
+
+
+  @media all and (max-width: 768px) {
+      padding: 0 16px;
+  }
+
+  .navContent {
+      @media all and (max-width: 768px) {
+          display: none;
+      }
+
+      &.show {
+          display: block;
+      }
+  }
+
+  
+  @media all and (max-width: 768px) {
+      z-index: 999;
+      width: auto;
+  }
+
+  .mobileMenu {
+      display: none;
+
+      @media all and (max-width: 768px) {
+          display: inline-block;
+          padding: 12px 0;
+          text-align: right;
+          cursor: pointer;
+      }
+  }
+}
