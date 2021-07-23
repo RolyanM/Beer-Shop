@@ -12,7 +12,7 @@ const App = () => {
   // SearchTerm will be used to filter list of beers by term
   const [searchTerm, setSearchTerm] = useState("");
 
-  //  filters that will be checked on/off for filtering the data
+  //  filters 
   const [filters, setFilters] = useState([
     { value: "abv", label: "High ABV (> 6.0%)", isChecked: false },
     { value: "classic", label: "Classic Range", isChecked: false },
