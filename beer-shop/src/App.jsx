@@ -6,13 +6,13 @@ import NavBar from "./components/NavBar";
 import Main from "./components/Main";
 
 const App = () => {
-  // beers list is empty, but set their state ready for API response
+  // beers list from API 
   const [beers, setBeers] = useState([]);
 
   // SearchTerm will be used to filter list of beers by term
   const [searchTerm, setSearchTerm] = useState("");
 
-  //  filters 
+  //  filters not working
   const [filters, setFilters] = useState([
     { value: "abv", label: "High ABV (> 6.0%)", isChecked: false },
     { value: "classic", label: "Classic Range", isChecked: false },
@@ -23,22 +23,22 @@ const App = () => {
   const handleChange = (e) => setSearchTerm(e.target.value);
 
   // Upon filter changing being applied/not, set the filters being applied
-  const handleChecked = (filter, isChecked) => {
-    const filtersCopy = Object.assign([], filters);
-    const index = filters.findIndex((f) => f.value === filter.value);
-    filtersCopy[index].isChecked = isChecked;
-    setFilters(filtersCopy);
-  };
+  // const handleChecked = (filter, isChecked) => {
+  //   const filtersCopy = Object.assign([], filters);
+  //   const index = filters.findIndex((f) => f.value === filter.value);
+  //   filtersCopy[index].isChecked = isChecked;
+  //   setFilters(filtersCopy);
+  // };
 
   // Fetch the beers from PUNK API
   const fetchBeers = () => {
     fetch("https://api.punkapi.com/v2/beers")
       // Put response into response.json file
       .then((response) => response.json())
-      // Add beers received in API fetch to beers object array of setBeers
+      // Add beers to setBeers
       .then((data) => setBeers(data))
       // error thing
-      .catch((error) => console.log(error));
+      .catch((error) => alert("Error"));
   };
 
   // On page load, fetch the beers
@@ -52,7 +52,7 @@ const App = () => {
       <NavBar
         filters={filters}
         handleChange={handleChange}
-        handleChecked={handleChecked}
+       
       />
       <Main beers={beers} searchTerm={searchTerm} filters={filters} />
     </>

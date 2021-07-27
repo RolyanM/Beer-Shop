@@ -2,10 +2,11 @@ import React from "react";
 import styles from "./Card.module.scss";
 
 const Card = (props) => {
+  
   const shortenDescription = (description) => {
-    return description.length < 150
+    return description.length < 200
         ? description
-        : description.substring(0, description.lastIndexOf(".", 150)) + ".";
+        : description.substring(0, description.lastIndexOf(".", 200)) + ".";
 }
 
 

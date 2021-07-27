@@ -5,13 +5,9 @@ import styles from "./NavBar.module.scss";
 
 
 const NavBar = (props) => {
-  const { label, value } = filter;
+  
   const {placeholder,  handleChange, filter, handleChecked  } = props;
-  const [isChecked, setIsChecked] = useState(false);
-  const toggleCheckbox = () => {
-    handleChecked(filter, !isChecked);
-    setIsChecked(!isChecked);
-  };
+
 
   return (
     <section className={styles.sideNav}>
@@ -20,10 +16,10 @@ const NavBar = (props) => {
         <div className={styles.searchBox}>
       <input type="text" placeholder={placeholder} onChange={handleChange} />
     </div>
-    <div className={styles.filterItem}>
+    {/* <div className={styles.filterItem}>
       <label>{label}</label>
       <input type="checkbox" value={value} onClick={toggleCheckbox} />
-    </div>
+    </div> */}
         </div>
   
 
