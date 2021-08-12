@@ -1,32 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./NavBar.module.scss";
-
-
+import SearchBox from "../SearchBox";
+import FilterList from "../FilterList";
 
 
 const NavBar = (props) => {
-  
-  const {placeholder,  handleChange, filter, handleChecked  } = props;
-
-
+  const { filters, handleChange, handleChecked } = props;
   return (
     <section className={styles.sideNav}>
       <div className={styles.navContent}>
         <div class={styles.logo}>
-        <div className={styles.searchBox}>
-      <input type="text" placeholder={placeholder} onChange={handleChange} />
-    </div>
-    {/* <div className={styles.filterItem}>
-      <label>{label}</label>
-      <input type="checkbox" value={value} onClick={toggleCheckbox} />
-    </div> */}
+          
         </div>
-  
-
+        <SearchBox placeholder="Search..." handleChange={handleChange} />
+        <FilterList filters={filters} handleChecked={handleChecked} />
       </div>
-      
     </section>
-    // Need to filter the beers from the nav bar with check boxes
   );
 };
 

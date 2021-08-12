@@ -23,12 +23,12 @@ const App = () => {
   const handleChange = (e) => setSearchTerm(e.target.value);
 
   //  set the filters being applied
-  // const handleChecked = (filter, isChecked) => {
-  //   const filtersCopy = Object.assign([], filters);
-  //   const index = filters.findIndex((f) => f.value === filter.value);
-  //   filtersCopy[index].isChecked = isChecked;
-  //   setFilters(filtersCopy);
-  // };
+  const handleChecked = (filter, isChecked) => {
+    const filtersCopy = Object.assign([], filters);
+    const index = filters.findIndex((f) => f.value === filter.value);
+    filtersCopy[index].isChecked = isChecked;
+    setFilters(filtersCopy);
+  };
 
   // Fetch the beers from PUNK API
   const fetchBeers = () => {
@@ -48,11 +48,11 @@ const App = () => {
 
   return (
     <>
-      {/* <button onClick = {(() => setFilters([]))}>Hello</button> */}
+      
       <NavBar
-        filters={filters}
-        handleChange={handleChange}
-       
+              filters={filters}
+              handleChange={handleChange}
+              handleChecked={handleChecked}
       />
       <Main beers={beers} searchTerm={searchTerm} filters={filters} />
     </>
