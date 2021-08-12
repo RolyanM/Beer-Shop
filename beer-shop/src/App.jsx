@@ -22,7 +22,7 @@ const App = () => {
   // Search box to search on input
   const handleChange = (e) => setSearchTerm(e.target.value);
 
-  // Upon filter changing being applied/not, set the filters being applied
+  //  set the filters being applied
   // const handleChecked = (filter, isChecked) => {
   //   const filtersCopy = Object.assign([], filters);
   //   const index = filters.findIndex((f) => f.value === filter.value);
